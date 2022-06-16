@@ -1,0 +1,69 @@
+Turbulence is ubiquitous in astrophysical processes.  We have developed analytic
+predictions for the distribution of energies in isothermal turbulence, both
+supersonic and subsonic. These simulations will verify our analytic predictions,
+and examine if deviations seen in preliminary studies are due to lack of
+resolution or interesting physics.
+We provide the background for the \nameTurbulence\ project in Section
+\ref{subsec.turb_motivate},
+and motivate the simulations that support this study in Section
+\ref{subsec.turb_sims}.
+
+
+\subsubsection{Motivation: \nameTurbulence}
+\label{subsec.turb_motivate}
+
+The interstellar medium (ISM) is the gas between stars in the galaxy.  It cools
+very effectively, so can be treated as isothermal \citep{Krumholz14}.  The ISM is also turbulent, with supersonic shocks driven by supernovae
+causing supersonic turbulence throughout the interstellar medium
+\citep{Elmegreen04}.  This
+turbulence impacts the formation of stars (see Section \ref{sec.back_cores}) and
+causes a polarized screen that is blocking our view of the light from the big bang (see
+Section \ref{sec.back_foregrounds}), among many other effects
+\citep{Elmegreen04}. It is also interesting in its own right.  We have developed
+analytic formulae for the probability density function (PDF) of internal energy
+and kinetic energy, as well as their joint distribution.  In this project we
+will verify these formulae with high resolution simulations.
+
+Supersonic turbulence is compressible, and the distribution of density
+fluctuations is described by a log normal, i.e. the log of density is
+distributed as a Gaussian \citep{Vazquez-Semadeni94}.  The distribution of velocity is roughly Maxwellian,
+i.e. each of the three velocity components is a Gaussian, and added in quadrature the
+distribution is Maxwellian.  
+We have recently found analytic distributions for the internal energy and
+kinetic energy, as well as their joint
+distribution.   (Rabatin et al 2022, in prep). Kinetic energy is defined in the familiar way, $E_K=\half \rho
+v^2$.  Internal energy is defined as $E_T= c_s^2 \rho \ln \rho/\rho_0$, where
+$c_s$ is the sound speed and $\rho_0$ is the mean density \citep{Banerjee18}.  The joint
+distribution of these two quantities can be seen in Figure \ref{fig.energy},
+along with our analytic prediction (dotted lines).
+Each panel shows the joint PDF of $E_K$ and $E_T$;  the color field shows the
+PDF derived from data; the solid lines show logarithmically spaced contours of
+the data; the dashed lines show the theoretical prediction.  The first panel is
+subsonic, with $\mach=0.5$, the middle has $\mach=1$, and the third panel is
+slightly supersonic, with $\mach=2$.  Significant changes in the behavior of the
+distribution, with high $K_E$ gas developing along side high $E_T$ gas, are both
+predicted by the analytical dashed lines and seen in the data.
+
+Our preliminary simulations were run with a modest resolution of $256^3$.  This
+is enough to find reasonable agreement, but imperfect. This can be seen most
+easily in the first panel of Figure \ref{fig.energy}, by examining the center
+most (red) contours. The solid line shows simulation, while the dashed line
+shows theory, which clearly agrees, but only approximately.  This lack of
+agreement can be one of several things, the first to examine is numerical
+resolution.  With insufficient resolution, energy is transferred from large to
+small scales faster than would be natural, which could be why we have mediocre
+agreement in our predicted theory.  
+
+\subsubsection{Simulations: \nameTurbulence}
+\label{subsec.turb_sims}
+
+The proposed simulations will quadruple this
+resolution to $1024^3$.  Owing to the substantial evolution with Mach number, we
+will run some subsonic cases (\mach=0.5, 1.0) and some moderate and highly
+supersonic cases (\mach=2,4,7).  The turbulence is produced by adding a random
+velocity component to the field in a manner that slowly evolves over time
+\citep{Schmidt09}.  The simulations are run for $5 t_{dyn} = 0.5/\mach$, the
+dynamical time is the time it takes for the forcing pattern (half the box
+length) to cross the box.  Running for $5 t_{dyn}$ allows the turbulence to be
+fully developed and statistically well sampled.  These are dimensionless physics
+studies, so the box size and sound speed are unity.

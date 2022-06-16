@@ -1,0 +1,60 @@
+
+The formation of stars is filled with filamentary, fractal structures
+\citep{Andre14}.  The
+\nameCores\ project will study the behavior of collapsing gas as it transitions
+from fractal structures to form dense prestellar cores.  We will motivate the
+study in Section \ref{subsec.cores_motivate}, and describe the simulations
+in \ref{subsec.cores_sims}.
+
+
+\subsubsection{Motivation: \nameCores}
+\label{subsec.cores_motivate}
+The formation of stars is one of the most important processes in astrophysics,
+as stars provide most of the light we see in the night sky, and they produce the
+energy and metal
+that dictates the structure and composition of a galaxy.  
+A \emph{prestellar core} is a knot of dense gas
+formed by gravity in a molecular cloud, which will ultimately form a star.  The
+formation of these cores is one of the more difficult puzzles in star formation,
+as it is fundamentally dictated by chaotic dynamics of the turbulence in the
+cloud.  This is the focus of the \nameCores\ project.
+
+One of our previous studies (Collins et al 2022, in prep) examined the collapse of a molecular cloud by
+including semi-Lagrangian tracer particles that follow the flow.  The particles
+that are found in dense cores at the end of the simulation are then followed
+backwards in time to 
+to examine the \emph{preimage} of the gas, before it collapses.  This will allow
+us to better constrain star formation models.  
+
+One of the curious findings is the fractal nature of the preimage gas.  We find
+that gas from distinct cores at the end of the simulation begins life mixed with
+one another in a fractal manner. This can be seen in Figure
+\ref{fig.cores}, which shows the overlap of a collection of preimages at the
+beginning of the simulation in the first 3 panels, and the
+collapse to form dense cores in the fourth.  The length scale in the first three panels translates to
+roughly 2 pc in size.  These panels show the overlap and fractal, filamentary nature of
+the gas before it collapses.  The
+last panel shows the un-mixing of the gas as it collapses in time.
+
+\subsubsection{Simulations: \nameCores}
+\label{subsec.cores_sims}
+
+The simulation presented in Figure \ref{fig.cores} was one of a suite of three
+simulations with varied magnetic field strength.  We began with fully developed
+turbulence, and then added tracer particles and turned on gravity and AMR.  These simulations were
+relatively low resolution as we developed the analysis techniques and learned
+about extended nature of the primage gas.
+Our proposed simulations will greatly improve the resolution
+to explore if these structures are in fact fractal, or a result of low
+resolution. The size of the box is 5 pc, and the r.m.s. Mach number is 9.  They
+will begin from existing simulation data.  The target simulations will have $512^3$ root grid and 4 levels of
+AMR, and $1024^3$ particles.  This is an increase of 4 in linear scale for the
+gas, and 16 for the particles over the results shown in Figure \ref{fig.cores}.
+The proposed suite of three simulations will mirror the magnetic field strengths
+of the preliminary studies.  The simulations will be similar to those presented
+in \citep{Collins12}, but with tracer particles and sinks.
+It will run for a total of one free-fall time, where $t_{ff}=(G
+\rho)^{-1/2}=1$Myr.  Here
+$G$ is the gravitational constant, and $\rho$ is the mean density of the box.
+These simulations will utilize isothermal MHD, gravity, and particle solvers.
+
