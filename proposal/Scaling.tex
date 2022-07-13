@@ -1,0 +1,102 @@
+%\documentclass[11pt]{article}  % for e-submission to ApJ
+\documentclass[11pt]{NSF}  % for e-submission to ApJ
+
+%\documentclass[12pt,preprint2]{aastex}  % for e-submission to ApJ - two column
+
+%\documentclass[manuscript]{emulateapj}  % this makes everything look like ApJ
+
+\usepackage{graphicx, natbib, color, bm, amsmath, epsfig}
+\input{aas_papers.tex}
+\input{commands.tex}
+\input{names}
+\citestyle{aa}  % correct formatting for ApJ style files
+
+\usepackage{aas_macros}
+\begin{document}
+
+\begin{centering}
+\begin{LARGE}
+Scaling Information for 
+
+``Four Projects in Astrophysical Magnetohydrodynamics''
+\end{LARGE}
+
+David Collins, PI
+
+\end{centering}
+
+
+\pagestyle{plain}
+
+The four projects presented in this proposal will be using the code Enzo
+\citep{Collins10, Bryan14}.
+Enzo  is an open source adaptive mesh refinement (AMR) code that
+has been used in hundreds of astrophysical works.  These studies include the
+formation of the first stars \citep{Abel02}, clusters of galaxies \citep{Xu11}
+and the large scale structure of the universe.  It employs several hydrodynamics
+solvers, including the piecewise parabolic method  \citep[PPM,][]{Colella84}, two implementations of
+magnetohydrodynamics (MHD), self-gravity, and Lagrangian particles that can be used
+for collisionless dark matter, stars, dust, and passive tracers.  One of the
+primary advantages of Enzo over other codes is its use of structured AMR, which
+allows it to add resolution elements adaptively as dictated by the problem.  A
+variety of refinement criterion are available.   The present studies will use
+the divergence-preserving MHD module \citep{Collins10}.  For the patch solver we
+use the
+second order MHD method of \citet{Li08a} and the constrained transport method of
+\citet{Gardiner05} to preserve the divergence-free constraint (\divbo) to
+machine precision.  For the AMR, the divergence-free reconstruction of \citet{Balsara01}
+is used to interface magnetic fields with the adaptive mesh.  For chemistry and
+radiative cooling used in the \emph{cores} project, Grackle is used
+\citep{Smith17}.  
+
+To measure the behavior of the solvers, we ran a weak scaling test with the main
+physics packages for the four projects.  The four projects are of two varieties:
+the \nameCMB\ and \nameTurbulence\ projects employ driven turbulence and the
+hydro/MHD solver, while the \nameCores\ and \nameGalaxies\ projects additionally
+employ the gravity solver.  Thus we run two scaling studies, one with just the
+hydro and one with hydro, gravity, and AMR.  For both studies,
+a constant amount of
+work, $128^3$ zones per task, was used for each node. 
+Scaling was done from 8 through 4096
+processors, with 64 threads per node (when possible).
+For the AMR, one level covering 1/8 of the box by volume was used.
+The packages in question do not depend heavily on the regime of
+physics in question, so uniform gas was taken in each case.  The results can be
+seen in Figure \ref{fig.scaling}.  Here we plot $\zeta = \frac{zone\
+updates}{core\ second}$ vs. number of mpi tasks.
+For ideal scaling, this will be independent of the number of processes.
+
+The blue curve, applicable to the \nameCMB\ and \nameTurbulence\ suites, contains only the MHD
+solver and random forcing.  This is extremely parallelizable, as the work is
+entirely local.  The orange curve, applicable to the \nameCores\ and
+\nameGalxies\ projects,
+uses the MHD solver, gravity solver, and AMR.  
+The performance of this combination sharply declines at 512 threads.  
+This is due to the gravity solver and AMR overhead.  
+
+We use a value of $\zeta=10^5$ for the \nameCMB\ and \nameTurbulence\
+simulations, and $7.4\sci{4}$ for the \nameCores\ and \nameGalaxies\
+simulations to estimate the total cost for each suite of simulations.
+
+
+\begin{figure} \begin{center}
+    \includegraphics[width=0.99\textwidth]{../figs/g49_zoneup.pdf}
+\caption[ ]{Updates per core-second for weak scaling on
+    Stampede 2.    
+The blue curve only employs
+    the MHD solver, in the configuration used for the \nameCMB\ and \nameTurbulence\
+    simulations.  The orange curve employs the MHD solver as well as the gravity
+    solver and AMR,
+ and will be used for the \nameCores\ and \nameGalaxies\ simulations.  The
+ gravity and AMR degrade the performance above 512 threads.  This study used 64
+ cores per node when possible.}
+\label{fig.scaling} \end{center} \end{figure}
+
+
+
+\bibliographystyle{apj}
+\bibliography{apj-jour,ms.bib}  % looks in ms.bib for bibliography info
+
+\end{document}  
+
+

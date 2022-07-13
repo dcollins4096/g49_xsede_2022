@@ -1,11 +1,15 @@
 \caption{Allocation request.  Cost for each simulation, $SU$, is computed from
-the cost per zone-update, $\suzu$, the number of zones $N_Z$, and the number of
-timesteps $N_U$.
-For the \nameTurbulence\ and \nameCMB\ suites, the
-simulations are itemized by Mach number and \alf\ Mach number, $M_s$ and $M_a$,
+wall time and number of nodes for each suite, per Equations \ref{eqn.twall},
+\ref{eqn.su}.  $T_{wall}$ is measured in hours, the number of nodes for each
+suite can be found
+in Table \ref{table1}.
+The \nameTurbulence\ and \nameCMB\ suites are
+itemized by Mach number and \alf\ Mach number, $M_s$ and $M_a$,
 which affect the total time, T, and timestep size $\Delta T$.  
-The cost of the AMR simulations, \nameCores\ and \nameGalaxies\, is estimated
-for each level, $\ell$, by estimating the volume fraction, $f_\ell$, covered on level
-    $\ell$, time step $\Delta t$.  Long term disk usage is estimated as $N_Z$
+The AMR simulations, \nameCores\ and \nameGalaxies\, is are itemized for a
+single simulation by level, $\ell$, and the cost is found by estimating the
+volume fraction, $f_\ell$, covered on level and the
+time step $\Delta t$ for that level.  The \nameCores\ and \nameGalaxies\
+simulations are repeated 3 and 2 times.  Long term disk usage is estimated as $N_Z$
     times the number of fields for each simulation.  More details are given in
-    the text }
+    the text. }

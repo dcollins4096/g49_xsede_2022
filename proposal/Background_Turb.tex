@@ -41,8 +41,13 @@ PDF derived from data; the solid lines show logarithmically spaced contours of
 the data; the dashed lines show the theoretical prediction.  The first panel is
 subsonic, with $\mach=0.5$, the middle has $\mach=1$, and the third panel is
 slightly supersonic, with $\mach=2$.  Significant changes in the behavior of the
-distribution, with high $K_E$ gas developing along side high $E_T$ gas, are both
-predicted by the analytical dashed lines and seen in the data.
+distribution, with high $E_K$ gas developing along side high $E_T$ gas, are both
+predicted by the analytical dashed lines and seen in the data.  This series of
+figures shows the difficulty of getting gas to large densities, i.e. large
+values of $E_T$.  Gas with low $E_K$ is found predominantly with low $E_T$,
+while at higher kinetic energy the thermal energy distribution becomes more
+broad, creating higher density gas.  This will be useful in understanding, e.g.,
+what gas in a molecular cloud becomes dense enough to form stars.
 
 Our preliminary simulations were run with a modest resolution of $256^3$.  This
 is enough to find reasonable agreement, but imperfect. This can be seen most
@@ -50,7 +55,11 @@ easily in the first panel of Figure \ref{fig.energy}, by examining the center
 most (red) contours. The solid line shows simulation, while the dashed line
 shows theory, which clearly agrees, but only approximately.  This lack of
 agreement can be one of several things, the first to examine is numerical
-resolution.  With insufficient resolution, energy is transferred from large to
+resolution.  As discussed in Section \ref{sec.back_foregrounds}, at low
+resolution the driving range and dissipation ranges intersect.  This causes
+results that are determined by the numerics, not the nonlinear dynamics of the
+equations.  
+With insufficient resolution, energy is transferred from large to
 small scales faster than would be natural, which could be why we have mediocre
 agreement in our predicted theory.  
 
@@ -58,12 +67,27 @@ agreement in our predicted theory.
 \label{subsec.turb_sims}
 
 The proposed simulations will quadruple this
-resolution to $1024^3$.  Owing to the substantial evolution with Mach number, we
+resolution to $1024^3$.  As discussed in Section \ref{sec.turbulence},
+this resolution is needed to separate the driving and dissipation rages.  
+Additionally, the resolution dictates the peak values of density (and other
+conserved quantities such as $E_K$ and $E_T$) that the system can attain, as a
+high density parcel of gas is necessarily small by 
+mass conservation.  A resolution of $1/1024^3$ is necessary to resolve the
+shocked gas that we will create.
+If the
+fits are not improved at $1024^3$, we will propose larger simulations during a
+future call for proposals.
+
+Turbulence is created in the same manner as the previous CMB simulations
+\ref{sec.back_foregrounds}, wherein large scale energy is added at every time
+step, and allowed to cascade to small scales.  Following the reasoning set out
+in Section \ref{sec.cmb_sims}, we will run for 5 $t_{dyn}=L/V$, where $L$ is the
+scale of the driving and $V$ is the r.m.s. Mach number.  This allows for $2
+t_{dyn}$ for the establishment of the turbulence, and 3 statistically separate
+periods to average the PDFs.  In both suites of simulations, 5 $t_{dyn}$ is the minimum
+amount of time necessary to achieve meaningful results.
+
+Owing to the substantial evolution with Mach number, we
 will run some subsonic cases (\mach=0.5, 1.0) and some moderate and highly
-supersonic cases (\mach=2,4,7).  The turbulence is produced by adding a random
-velocity component to the field in a manner that slowly evolves over time
-\citep{Schmidt09}.  The simulations are run for $5 t_{dyn} = 0.5/\mach$, the
-dynamical time is the time it takes for the forcing pattern (half the box
-length) to cross the box.  Running for $5 t_{dyn}$ allows the turbulence to be
-fully developed and statistically well sampled.  These are dimensionless physics
+supersonic cases (\mach=2,4,7).   These are dimensionless physics
 studies, so the box size and sound speed are unity.

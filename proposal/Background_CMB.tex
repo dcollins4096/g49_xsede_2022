@@ -47,7 +47,7 @@ grains radiate polarized thermal radiation in the microwave and infrared, and so
 the dust polarization is perpendicular to the magnetic field.  This
 polarized signal is much brighter than the polarization in the CMB, so it must be
 removed.  In order to remove it, we must understand the statistical properties
-of the turbulent interstellar medium of the Galaxy.
+of the turbulent interstellar medium of the Galaxy. 
 
 The polarization vector of a photon is the given by orientation of its electric field.  This is
 a quantity that depends on the orientation of the camera observing it, which is
@@ -82,20 +82,7 @@ in the legend of the figure, along with the powerlaw exponent of the line.  Two 
 of note.  First, the slopes are all steeper than that found by Planck.  And
 second, most notably the bottom red line, is the poor linear quality of the
 resulting spectra.  These shortcomings are the result of inadequate resolution,
-as we will now discuss.
-
-In a turbulent system, energy is injected at large scales, and then cascades to
-smaller scales by way of fluid instabilities \citep{Frisch95}.  The cascade to
-small scale continues until the energy is dissipated by molecular diffusion.
-The range between the injection scale and the dissipation scale is the
-\emph{inertial range}, where the nonlinear inertia term in the Navier Stokes equation
-dominates the dissipation term.  The processes in the inertial range are
-independent from the details of the injection (in these simulations energy is added at the
-large scale) and dissipation (which is set by the solver, and depends on the
-injection).  If the injection and dissipation scales are too close, it is
-difficult to determine where the inertial range starts and stops, and its slope
-becomes distorted.  The proposed simulations will improve this resolution and
-narrow the parameter sweep.
+as discussed in Section \ref{sec.turbulence}.
 
 
 \subsubsection{Simulations: \nameCMB}
@@ -104,12 +91,11 @@ narrow the parameter sweep.
 Our previous suite of simulations (Stalpes et al 2022, in prep) was run at a
 resolution of  $512^3$, which is insufficient to match the behavior of the sky.
 The current simulations will double the size of the inertial range by doubling
-the resolution to $1024^3$.  In this case more resolution is better without
+the resolution to $1024^3$, and target parameter space suggested by that
+parameter suite.  In this case more resolution is better without
 bound, as the sky we are trying to match has an astronomical separation of scales. However, doubling
-the inertial range increases the cost by a factor of at least 16, so while a
-resolution of $2048^3$ is not impossible, it requires a considerable amount of
-resources in disk, SUs, and human time.  If the slopes and inertial ranges at
-$1024^3$ is still insufficient, we will propose larger simulations.
+the inertial range increases the cost by a factor of at least 16, so while
+higher resolution is possible, is is not warranted at this time.
 
 The turbulence in our simulations is created by way of large scale forcing, in
 which energy is added to the gas at every time step at the largest scale, in a
@@ -124,4 +110,4 @@ independent spectra to average.  Again, more is better, three is the minimum.
 Our results from Stalpes et al (2022) indicated that an r.m.s. Mach number of 5
 is necessary to reproduce the observed spectra.  We will run a suite of four
 simulations with (\mach, \alfmach) = (1,1),(1,5),(5,1),(5,5).  This will allow
-us to bracket the probably ranges of parameters the ISM experiences.
+us to bracket the ranges of parameters the ISM experiences.
