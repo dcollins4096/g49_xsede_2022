@@ -5,23 +5,26 @@ details.
 
 In a turbulent system, energy is injected at a scale, $L_{driving}$.  By way of
 fluid instabilities, the energy cascades to smaller and smaller scales until
-molecular interactions dissipate the energy at a scale $L_{diss}$.  This causes the spectrum of energy
-to behave like a powerlaw, $E(k)=k^{a}$.  For incompressible fluid turbulence,
+molecular interactions dissipate the energy at a scale $L_{diss}$.  The energy
+spectrum 
+behaves like a powerlaw, $E(k)=k^{a}$.  For incompressible fluid turbulence,
 $a=-5/3$, but that exponent varies with the inclusion of supersonic
 (compressible) flow and magnetic fields.  The region between
 $L_{driving}$ and $L_{diss}$, where the powerlaw is valid, is referred to as
 the \emph{inertial range}.  Here, the nonlinear inertial terms in the
-Navier-Stokes equation dominate over the dissipation terms, and it is the
+Navier-Stokes equation dominates over the dissipation terms, and it is the
 behavior of the nonlinear terms that we wish to explore.  $L_{driving}$ is set
 by the boundary of the simulation. $L_{diss}$ is set by details of the
 solver and the energy of the flow.  Thus, for a given driving energy, the only
 way to increase the size of the inertial range is with resolution.  The
-inclusion of magnetic fields only shrinks the inertial range.
+inclusion of magnetic fields only shrinks the inertial range and makes the
+problem harder.
 
 At a resolution of $256^3$, the driving scale and dissipation scale overlap, and
 there is not much inertial range to work with.  At $512^3$, an inertial range
 appears, but it is small, and determining the actual powerlaw portion of the
-spectrum is error-prone.  At $1024^3$, a reasonable powerlaw appears even for
+spectrum is error-prone.  This will be demonstrated in Section
+\ref{sec.back_foregrounds}.  At $1024^3$, a reasonable powerlaw appears even for
 magnetized simulations.  Further increase of the resolution is desirable, but
 the cost scales like the number of zones on a side to the fourth power, while
 the size of the inertial range is only linear.  Increases in resolution to
@@ -32,13 +35,19 @@ current proposal indicate it is necessary.
 Turbulence is a chaotic process, and must be handled statistically.  A single
 snapshot from a turbulent box is largely random, the true nature must be
 averaged over a window of time.  Additionally, we focus on fully developed
-turbulence, which takes some simulation time to develop.  
+turbulence, which takes some simulation time to develop. Thus we run our
+simulations for a period of time to develop the turbulence, and a period of time
+for statistical averaging.  This is discussed in detail in the next two
+sections.
 
-For the \nameCMB\ and \nameTurbulence simulations, we will use a resolution of $1024^3$ to
+For the \nameCMB\ and \nameTurbulence\ simulations, we will use a resolution of $1024^3$ to
 obtain inertial ranges that are well defined.  For the \nameCores\ suite, we
 will use a root grid of $512^3$ to offset the cost of 4 levels of AMR and
 gravity.  The
-\nameGalaxies\ will use a root grid of $256^3$ and 8 levels of AMR-- properly
+\nameGalaxies\ will use a root grid of $256^3$ and 8 levels of AMR, and
+sacrifices well resolved turbulence for spatial dynamic range.  Properly
 resolving the turbulence in the galaxy as well as the circumgalactic media is
-presently impossible.  Simulation design will be described further in the next
+presently impossible.  
+
+Simulation purpose and design will be described further in the next
 sections.

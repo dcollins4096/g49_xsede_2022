@@ -3,15 +3,15 @@
 
 We are requesting \SUtotal\ SUs on Stampede 2 for the period beginning June 1,
 2022.  This allocation will support four projects involving astrophysical
-magnetic fields and turbulence.  The first project (\nameTurbulence) explores analytical
-formulae we have developed for isothermal turbulence, which is relevant for many
-astrophysical processes, among them the formation of stars.  The second project
-(\nameCores) examines fractal structures in star forming clouds.
-  The third project (\nameCMB) examines the polarized signal
+magnetic fields and turbulence.  The first project  (\nameCMB) examines the polarized signal
 produced by the interstellar medium, which is in the foreground of our understanding of
-the distant cosmic microwave background (CMB). The fourth project (\nameGalaxies)
+the distant cosmic microwave background (CMB). The second project (\nameTurbulence) explores analytical
+formulae we have developed for isothermal turbulence, which is relevant for many
+astrophysical processes, among them the formation of stars.
+  The third project (\nameCores) examines fractal structures in star forming clouds. The fourth project (\nameGalaxies)
 simulates entire galaxies, in order to understand the growth of the magnetic
-field.
+field, and the spatial distribution of magnetic fields for CMB foreground
+removal.
 This research is supported by two NSF grants.  The first two projects
 (\nameTurbulence\ and \nameCores)  
 are
@@ -26,14 +26,17 @@ and \nameCMB\ projects; and Jacob Strack is working on the \nameGalaxies\
 project.
 
 
-Table \ref{table1} shows the cost for each project.  Each of the four projects
-uses a slightly different physics package, which affects  the cost of the
-simulation.  In addition, two of the four projects employ adaptive mesh
-refinement (AMR), a technique that adaptively changes the resolution of the
-simulation.  This also affects the cost of the simulation.
+Table \ref{table1} shows the cost for each project in SUs, as well as the disk
+usage, physics packages, number of simulations to be run, and number of nodes to
+be used.  64 cores per node will be used for all runs.  Also included is the
+storage need for our existing archive of data, much of which is still generating
+publications.
+Two projects are fixed resolution driven turbulence (\nameTurbulence and \nameCMB), and two use
+more expensive gravity and adaptive mesh refinement (\nameCores\ and
+\nameGalaxies). In Section \ref{sec.method} we
+describe the computational tools to be used.  
 We motivate each project and describe the simulations to be
 run in Section
-\ref{sec.background}.  In Section \ref{sec.method} we
-describe the computational tools to be used.  In Section \ref{sec.plan} we
+\ref{sec.background}.  In Section \ref{sec.plan} we
 give the projected cost  and disk usage of these simulations.
 

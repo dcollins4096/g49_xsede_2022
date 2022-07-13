@@ -32,23 +32,34 @@ one another in a fractal manner. This can be seen in Figure
 \ref{fig.cores}, which shows the overlap of a collection of preimages at the
 beginning of the simulation in the first 3 panels, and the
 collapse to form dense cores in the fourth.  The length scale in the first three panels translates to
-roughly 2 pc in size.  These panels show the overlap and fractal, filamentary nature of
+roughly 2 pc in size.  These panels (3a-3c) show the overlap and fractal, filamentary nature of
 the gas before it collapses.  The
-last panel shows the un-mixing of the gas as it collapses in time.
-
-\subsubsection{Simulations: \nameCores}
-\label{subsec.cores_sims}
+last (3d) panel shows the un-mixing of the gas as it collapses in time.  The
+right panel of Figure \ref{fig.cores} shows a projection of the prestellar cores
+at the end of the simulation.
 
 The simulation presented in Figure \ref{fig.cores} was one of a suite of three
 simulations with varied magnetic field strength.  We began with fully developed
 turbulence, and then added tracer particles and turned on gravity and AMR.  These simulations were
-relatively low resolution as we developed the analysis techniques and learned
-about extended nature of the primage gas. Our proposed simulations will greatly improve the resolution
+relatively low resolution ($128^3$ and 4 levels of refinement) as we developed the analysis techniques and learned
+about extended nature of the primage gas. Our proposed simulations will greatly
+improve the resolution,
 to explore if these structures are in fact fractal, or a result of low
 resolution. 
-The target simulations will have $512^3$ root grid and 4 levels of
-AMR, and $1024^3$ particles.  This resolution strategy is a compromise between
-a large root grid to resolve the turbulence and deep AMR to capture the cores.  
+
+
+
+
+\subsubsection{Simulations: \nameCores}
+\label{subsec.cores_sims}
+
+
+The proposed simulations will have $512^3$ root grid and 4 levels of
+AMR, and $1024^3$ particles.  They will also use self-gravity.  This resolution strategy is a compromise between
+a large root grid to resolve the turbulence and deep AMR to capture the cores.
+A larger root grid would resolve the inertial range more accurately, but the
+added cost of the AMR overhead and gravity solver makes larger simulations
+(almost) prohibitively expensive.  
 
 The size of the box is 5 pc, and the r.m.s. Mach number is 9.  They
 will begin from existing simulation data.  
@@ -56,7 +67,8 @@ will begin from existing simulation data.
 The proposed suite of three simulations will mirror the magnetic field strengths
 of the preliminary studies.  The simulations will be similar to those presented
 in \citep{Collins12}, but with tracer particles and sinks.
-It will run for a total of one free-fall time, where $t_{ff}=(G
+
+The simulations  will each run for a total of one free-fall time, where $t_{ff}=(G
 \rho)^{-1/2}=1$Myr (G is the gravitational constant and $\rho$ is the mean
 density of the box).  Beyond this time, feedback from young stars begins and
 alters the structure of the cloud, which is beyond the scope of this study. 

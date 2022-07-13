@@ -33,11 +33,11 @@ We have recently found analytic distributions for the internal energy and
 kinetic energy, as well as their joint
 distribution.   (Rabatin et al 2022, in prep). Kinetic energy is defined in the familiar way, $E_K=\half \rho
 v^2$.  Internal energy is defined as $E_T= c_s^2 \rho \ln \rho/\rho_0$, where
-$c_s$ is the sound speed and $\rho_0$ is the mean density \citep{Banerjee18}.  The joint
-distribution of these two quantities can be seen in Figure \ref{fig.energy},
-along with our analytic prediction (dotted lines).
-Each panel shows the joint PDF of $E_K$ and $E_T$;  the color field shows the
-PDF derived from data; the solid lines show logarithmically spaced contours of
+$c_s$ is the sound speed and $\rho_0$ is the mean density \citep{Banerjee18}.  
+Figure \ref{fig.energy} shows 
+ the joint PDF of $E_K$ and $E_T$ for three simulations at increasing Mach
+ number.  The color field shows the
+PDF derived from low-resolution simulations; the solid lines show logarithmically spaced contours of
 the data; the dashed lines show the theoretical prediction.  The first panel is
 subsonic, with $\mach=0.5$, the middle has $\mach=1$, and the third panel is
 slightly supersonic, with $\mach=2$.  Significant changes in the behavior of the
@@ -72,14 +72,15 @@ this resolution is needed to separate the driving and dissipation rages.
 Additionally, the resolution dictates the peak values of density (and other
 conserved quantities such as $E_K$ and $E_T$) that the system can attain, as a
 high density parcel of gas is necessarily small by 
-mass conservation.  A resolution of $1/1024^3$ is necessary to resolve the
-shocked gas that we will create.
+mass conservation.  As discussed above, the benifit of increased
+resolution is linear in the number of zones across, but the cost scales like the
+fourth power.  
 If the
 fits are not improved at $1024^3$, we will propose larger simulations during a
 future call for proposals.
 
 Turbulence is created in the same manner as the previous CMB simulations
-\ref{sec.back_foregrounds}, wherein large scale energy is added at every time
+(see Section \ref{sec.back_foregrounds}), wherein large scale energy is added at every time
 step, and allowed to cascade to small scales.  Following the reasoning set out
 in Section \ref{sec.cmb_sims}, we will run for 5 $t_{dyn}=L/V$, where $L$ is the
 scale of the driving and $V$ is the r.m.s. Mach number.  This allows for $2
@@ -87,7 +88,7 @@ t_{dyn}$ for the establishment of the turbulence, and 3 statistically separate
 periods to average the PDFs.  In both suites of simulations, 5 $t_{dyn}$ is the minimum
 amount of time necessary to achieve meaningful results.
 
-Owing to the substantial evolution with Mach number, we
+Owing to the substantial evolution in the PDF with Mach number, we
 will run some subsonic cases (\mach=0.5, 1.0) and some moderate and highly
 supersonic cases (\mach=2,4,7).   These are dimensionless physics
 studies, so the box size and sound speed are unity.

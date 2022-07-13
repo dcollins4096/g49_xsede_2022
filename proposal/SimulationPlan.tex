@@ -20,8 +20,11 @@ physics employed.  The net cost in $SU$ is then
 where $N_N$ is the number of nodes.  For all simulations, we will use 64 cores
 per node, so $N_C=64 N_N$.  We will estimate $N_Z$ and $N_U$ from the physics
 goals in this section.  The performance, $\zeta$, is measured in the Scaling
-document.  The number of cores, $N_C$, is selected from the performance
-described in the scaling document.
+document.  The number of nodes, $N_N$, is selected from the performance
+described in the scaling document.  It is found that the simulations without
+self-gravity (\nameCMB\ and \nameTurbulence\) scale quite well, and will use 64
+nodes.  The two with gravity do not scale as well due to the gravity and AMR
+overhead, and will use 8 nodes.
 
 The estimate of the number of zones, $N_Z$,
 is determined by the target resolution for the simulation and the expected AMR

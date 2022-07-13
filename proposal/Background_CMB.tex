@@ -5,8 +5,8 @@ universe.  To learn more from it, we must understand its polarization.  To see
 the polarization of the CMB, we must first understand the polarization of the
 interstellar medium (ISM), which is much brighter and in the way.  This project
 will perform simulations of driven magnetized turbulence, and compare the
-filamentary structure found with an analytic model of the CMB polarization
-developed by \citet{Huffenberger20}.  We will
+structures found on the sky.
+We will
 motivate this project in Section \ref{subsec.cmb_motivate}, and describe the
 simulations we will perform in Section \ref{subsec.cmb_sims}
 
@@ -95,19 +95,20 @@ the resolution to $1024^3$, and target parameter space suggested by that
 parameter suite.  In this case more resolution is better without
 bound, as the sky we are trying to match has an astronomical separation of scales. However, doubling
 the inertial range increases the cost by a factor of at least 16, so while
-higher resolution is possible, is is not warranted at this time.
+higher resolution is possible, is is the expense is not warranted at this time.
 
-The turbulence in our simulations is created by way of large scale forcing, in
-which energy is added to the gas at every time step at the largest scale, in a
+The turbulence in our simulations is created by way of large scale forcing. Energy is added to the gas at every time step at the largest scale, in a
 manner that keeps the injection rate constant \citep{MacLow99, Schmidt09}.  This is
 continued for 5 dynamical times, $t_{dyn}=L/V$, where $L$ is the size of the
 pattern and $V$ is the r.m.s. Mach number of the flow.  The first $2 t_{dyn}$
-are used to establish a steady state, within this window of time the flow is
-chaotic and the spectra fluctuate wildly.  We then run for an additional $3 t_{dyn}$ to build statistics, and
+are used to establish a steady state, as the chaos of the onset of turbulence
+causes the propertis of the gas to fluctuate wildly at the beginning.   We then run for an additional $3 t_{dyn}$ to build statistics, and
 average the power spectra over this window.  This gives us three statistically
-independent spectra to average.  Again, more is better, three is the minimum.  
+independent spectra to average.  Again, more is better, three is the minimum to
+achieve a converged spectrum.
 
 Our results from Stalpes et al (2022) indicated that an r.m.s. Mach number of 5
 is necessary to reproduce the observed spectra.  We will run a suite of four
 simulations with (\mach, \alfmach) = (1,1),(1,5),(5,1),(5,5).  This will allow
-us to bracket the ranges of parameters the ISM experiences.
+us to bracket the ranges of parameters the ISM experiences with a minimum of
+simulations.
