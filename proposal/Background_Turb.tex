@@ -1,13 +1,10 @@
-Turbulence is ubiquitous in astrophysical processes.  We have developed analytic
-predictions for the distribution of energies in isothermal turbulence, both
-supersonic and subsonic. These simulations will verify our analytic predictions,
-and examine if deviations seen in preliminary studies are due to lack of
-resolution or interesting physics.
-We provide the background for the \nameTurbulence\ project in Section
-\ref{subsec.turb_motivate},
-and motivate the simulations that support this study in Section
-\ref{subsec.turb_sims}.
-
+The \nameTurbulence\ project focuses on the distribution of energy in isothermal
+turbulence.
+We have developed analytic formulae for the probability density function (PDF)
+for kinetic energy, $E_K=\frac{1}{2}\rho
+v^2$ and internal (Helmholtz) energy, $E_T=c_s^2 \ln \rho/\rho_0$, for
+isothermal turbulence.  We have also found a formula for the joint distribution.
+We will verify these formulae with high resolution simulations.
 
 \subsubsection{Motivation: \nameTurbulence}
 \label{subsec.turb_motivate}
@@ -19,10 +16,10 @@ causing supersonic turbulence throughout the interstellar medium
 turbulence impacts the formation of stars (see Section \ref{sec.back_cores}) and
 causes a polarized screen that is blocking our view of the light from the big bang (see
 Section \ref{sec.back_foregrounds}), among many other effects
-\citep{Elmegreen04}. It is also interesting in its own right.  We have developed
-analytic formulae for the probability density function (PDF) of internal energy
-and kinetic energy, as well as their joint distribution.  In this project we
-will verify these formulae with high resolution simulations.
+\citep{Elmegreen04}. It is also interesting in its own right.  Understanding the
+relationship between internal energy and kinetic energy is useful in
+understanding the energy budget in such a cloud, as well as understanding how
+things get dense.
 
 Supersonic turbulence is compressible, and the distribution of density
 fluctuations is described by a log normal, i.e. the log of density is
@@ -72,7 +69,7 @@ this resolution is needed to separate the driving and dissipation rages.
 Additionally, the resolution dictates the peak values of density (and other
 conserved quantities such as $E_K$ and $E_T$) that the system can attain, as a
 high density parcel of gas is necessarily small by 
-mass conservation.  As discussed above, the benifit of increased
+mass conservation.  As discussed above, the benefit of increased
 resolution is linear in the number of zones across, but the cost scales like the
 fourth power.  
 If the
@@ -82,7 +79,7 @@ future call for proposals.
 Turbulence is created in the same manner as the previous CMB simulations
 (see Section \ref{sec.back_foregrounds}), wherein large scale energy is added at every time
 step, and allowed to cascade to small scales.  Following the reasoning set out
-in Section \ref{sec.cmb_sims}, we will run for 5 $t_{dyn}=L/V$, where $L$ is the
+in Section \ref{sec.turbulence}, we will run for 5 $t_{dyn}=L/V$, where $L$ is the
 scale of the driving and $V$ is the r.m.s. Mach number.  This allows for $2
 t_{dyn}$ for the establishment of the turbulence, and 3 statistically separate
 periods to average the PDFs.  In both suites of simulations, 5 $t_{dyn}$ is the minimum

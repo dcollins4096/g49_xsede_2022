@@ -16,4 +16,10 @@ scaling: Scaling.tex
 	pdflatex Scaling
 	bibtex Scaling
 	pdflatex Scaling
+	pdflatex Scaling
 
+progress: Progress.tex
+	pdflatex Progress
+	pdflatex Progress
+	bibtex Progress
+	pdflatex Progress

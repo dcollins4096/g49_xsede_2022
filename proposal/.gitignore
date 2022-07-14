@@ -2,3 +2,15 @@ trash
 trash
 old_bibs
 figs_work
+*.log 
+*.out 
+*.aux 
+*.dvi 
+*~ 
+*.bbl 
+*.blg
+*.ps 
+*.bak 
+*.toc 
+*.lof 
+*.lot

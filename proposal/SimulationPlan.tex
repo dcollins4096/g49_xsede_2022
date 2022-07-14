@@ -22,7 +22,7 @@ per node, so $N_C=64 N_N$.  We will estimate $N_Z$ and $N_U$ from the physics
 goals in this section.  The performance, $\zeta$, is measured in the Scaling
 document.  The number of nodes, $N_N$, is selected from the performance
 described in the scaling document.  It is found that the simulations without
-self-gravity (\nameCMB\ and \nameTurbulence\) scale quite well, and will use 64
+self-gravity (\nameCMB\ and \nameTurbulence) scale quite well, and will use 64
 nodes.  The two with gravity do not scale as well due to the gravity and AMR
 overhead, and will use 8 nodes.
 
@@ -43,7 +43,8 @@ from prior simulations, and compute the number of zones on each level as
 \begin{align}
     N_Z = \frac{V f_\ell}{\Delta x_\ell^3},
 \end{align}
-where $V$ is the total volume for each simulation, and $\Delta x_\ell$ on each level is 1/8th that of its parent.
+where $V$ is the total volume for each simulation, and $\Delta x_\ell$ on each
+level is 1/2 that of its parent.
 
 The number of updates, $N_U$, is found as
 $N_U=T/\Delta T$, where the total simulation time is $T$ and the size of the

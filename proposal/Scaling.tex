@@ -46,7 +46,7 @@ second order MHD method of \citet{Li08a} and the constrained transport method of
 \citet{Gardiner05} to preserve the divergence-free constraint (\divbo) to
 machine precision.  For the AMR, the divergence-free reconstruction of \citet{Balsara01}
 is used to interface magnetic fields with the adaptive mesh.  For chemistry and
-radiative cooling used in the \emph{cores} project, Grackle is used
+ thermodynamics used in the \nameGalaxies\ project, Grackle is used
 \citep{Smith17}.  
 
 To measure the behavior of the solvers, we ran a weak scaling test with the main
@@ -54,7 +54,7 @@ physics packages for the four projects.  The four projects are of two varieties:
 the \nameCMB\ and \nameTurbulence\ projects employ driven turbulence and the
 hydro/MHD solver, while the \nameCores\ and \nameGalaxies\ projects additionally
 employ the gravity solver.  Thus we run two scaling studies, one with just the
-hydro and one with hydro, gravity, and AMR.  For both studies,
+MHD; and one with MHD, gravity, and AMR.  The For both studies,
 a constant amount of
 work, $128^3$ zones per task, was used for each node. 
 Scaling was done from 8 through 4096
@@ -66,22 +66,23 @@ seen in Figure \ref{fig.scaling}.  Here we plot $\zeta = \frac{zone\
 updates}{core\ second}$ vs. number of mpi tasks.
 For ideal scaling, this will be independent of the number of processes.
 
-The blue curve, applicable to the \nameCMB\ and \nameTurbulence\ suites, contains only the MHD
+The blue curve, applicable to the \nameCMB\ and \nameTurbulence\ suites, uses only the MHD
 solver and random forcing.  This is extremely parallelizable, as the work is
 entirely local.  The orange curve, applicable to the \nameCores\ and
-\nameGalxies\ projects,
+\nameGalaxies\ projects,
 uses the MHD solver, gravity solver, and AMR.  
 The performance of this combination sharply declines at 512 threads.  
 This is due to the gravity solver and AMR overhead.  
 
 We use a value of $\zeta=10^5$ for the \nameCMB\ and \nameTurbulence\
 simulations, and $7.4\sci{4}$ for the \nameCores\ and \nameGalaxies\
-simulations to estimate the total cost for each suite of simulations.
+simulations to estimate the total cost for each suite of simulations.  We will
+use 64 nodes for the first two, and 8 nodes for the second two.
 
 
 \begin{figure} \begin{center}
-    \includegraphics[width=0.99\textwidth]{../figs/g49_zoneup.pdf}
-\caption[ ]{Updates per core-second for weak scaling on
+    \includegraphics[width=0.99\textwidth]{figs/g49_zoneup.pdf}
+\caption[ ]{Zone-pdates per core-second for weak scaling on
     Stampede 2.    
 The blue curve only employs
     the MHD solver, in the configuration used for the \nameCMB\ and \nameTurbulence\

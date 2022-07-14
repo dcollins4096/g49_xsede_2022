@@ -1,4 +1,6 @@
-The galactic magnetic field can be seen in Figure \ref{fig.planck}.  This figure
+The \nameGalaxies\ project will simulate magnetic field amplification in Milky
+Way sized galaxies.
+The Galactic magnetic field can be seen in Figure \ref{fig.planck}.  This figure
 shows an all-sky projection of dust in the galaxy, as seen by the 353 GHz camera
 on Planck.  The image is smeared along the direction of
 the magnetic field, which is measured by way of the polarization of the signal.  Our goal in the \nameGalaxies\ project is to understand the
@@ -33,11 +35,17 @@ project.
 \subsubsection{Simulations: \nameGalaxies}
 \label{subsec.galaxies_sims}
 
+The primary design goal of this simulation is to simultaneously resolve the
+circumgalactic material (CMG, the gas around the galaxy) and the disk of the
+galaxy.  The CGM serves as the
+boundary condition for our dynamo, and the disk is the location of the
+amplification.
+
 The disk of our simulated galaxies will be 500pc thick and 25kpc in radius.  Our
-proposed simulation domain will begin at very large scale, $1.3$ Mpc.  This is to
+proposed simulation domain will will be very large scale, $1.3$ Mpc.  This is to
 separate the boundary from the region of interest, and to give gas expelled from
 the galaxies
-enough volume to expand.  This will begin at $256^3$, smaller than the
+enough volume to expand.  The root grid will $256^3$, smaller than the
 other simulations, but this suite of galaxy simulations has much deeper AMR.  We will resolve a nest of refinement grids, each one
 1/2 of its parent grid on a side, giving constant number of zones per level.
 This will be done for 5 levels.  We will allow the simulation to 
@@ -50,7 +58,9 @@ the entire galaxy, we can no longer use an idealized isothermal equation of
 state as the other simulations do, but will use ISM heating and cooling functions by way of the
 tabulated look up using Grackle \citep{Smith17}.  We will perform two such
 simulations, one production simulation and one for development.
-Simulations will last for 1Gyr, four orbital timescales for the galaxy. 
+Simulations will last for 1Gyr, four orbital timescales for the galaxy.
+Observations indicate that this is sufficient time to grow the field to its
+final state \citep{Mao17}.
 
 These simulations will also be useful in conjunction with the \nameCMB\ project.
 The two approaches compliment each other, as the \nameCMB\ simulations will
